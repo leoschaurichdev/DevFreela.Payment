@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DevFreela.Payments.API.Controllers
 {
+    [ApiController]
     [Route("api/payments")]
     public class PaymentsController : ControllerBase
     {
@@ -13,13 +14,13 @@ namespace DevFreela.Payments.API.Controllers
             _paymentService = paymentService;
         }
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] PaymentInfoInputModel paymentInfoInputModel)
+        public async Task<ActionResult> Post([FromBody] PaymentInfoInputModel model)
         {
-            var result = await _paymentService.Process(paymentInfoInputModel);
+            var result = await _paymentService.Process(model);
 
             if (!result)
             {
-                return BadRequest(result); 
+                return BadRequest(); 
             }
 
             return NoContent();

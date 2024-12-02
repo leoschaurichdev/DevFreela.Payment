@@ -6,6 +6,7 @@ namespace DevFreela.Payments.API.Services
     {
         public Task<bool> Process(PaymentInfoInputModel paymentInfoInputModel)
         {
+            //TODO IMPLEMENTAR LÓGICA DE PAGAMENTO COM GATEWAY DE PAGAMENTO
             return Task.FromResult(true);
         }
     }
