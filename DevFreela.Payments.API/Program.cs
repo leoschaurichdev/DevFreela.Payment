@@ -1,8 +1,10 @@
+using DevFreela.Payments.API.Consumers;
 using DevFreela.Payments.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddHostedService<ProcessPaymentConsumer>();
 
 // Add services to the container.
 
